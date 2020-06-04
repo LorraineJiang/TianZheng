@@ -1,0 +1,108 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using DG.Tweening;
+
+public class ScenceItems : ItemBase, IClickItem
+{
+    [Tooltip("是否有缩略窗口显示")]
+    public bool hasMiniInfoWindow = false;
+    [Tooltip("悬浮框的预制体")]
+    public GameObject miniWinPrefab;
+    public Camera mainCamera;
+    public Camera firstCamera;
+    [Tooltip("悬浮框的最远显示距离")]
+    public float ShowMaxDistance = 80f;
+    [Tooltip("悬浮框的最近显示距离")]
+    public float ShowMinDistance = 20f;
+    [Tooltip("显示的位置点")]
+    public Transform showPoint;
+    [Tooltip("悬浮框的偏移")]
+    public Vector3 offset;
+
+    private bool isMainCameraShow;
+    private bool isFirstCameraShow;
+    private GameObject window;
+    private void Start()
+    {
+        if (hasMiniInfoWindow)
+        {
+            window = Instantiate(miniWinPrefab, showPoint.position + offset, showPoint.rotation, showPoint);
+            window.transform.localScale = new Vector3(1, 0, 1);
+            window.SetActive(false);
+        }
+        StartCoroutine(IEShowMiniWin());
+    }
+
+    public void ClickCall()
+    {
+        SqliteCtr.Instance.Reader = SqliteCtr.Instance.DbHelper.ReadSpecificData("Item", "id", base.id.ToString());
+        while (SqliteCtr.Instance.Reader.Read())
+        {
+            string id = SqliteCtr.Instance.Reader.GetInt32(SqliteCtr.Instance.Reader.GetOrdinal("id")).ToString();
+            string name = SqliteCtr.Instance.Reader.GetString(SqliteCtr.Instance.Reader.GetOrdinal("name"));
+            string info = SqliteCtr.Instance.Reader.GetString(SqliteCtr.Instance.Reader.GetOrdinal("info"));
+            string state = SqliteCtr.Instance.Reader.GetString(SqliteCtr.Instance.Reader.GetOrdinal("state"));
+            string imagePath = SqliteCtr.Instance.Reader.GetString(SqliteCtr.Instance.Reader.GetOrdinal("image"));
+            string width = SqliteCtr.Instance.Reader.GetString(SqliteCtr.Instance.Reader.GetOrdinal("width"));
+            string height = SqliteCtr.Instance.Reader.GetString(SqliteCtr.Instance.Reader.GetOrdinal("height"));
+            LoxodonWindowCtr.Instance.OpenWindow<InformationWindow>(Global.path_InformationWindow).SetModel(id,name, info, state, float.Parse(width),float.Parse(height), imagePath);
+        }
+    }
+
+    public void ClickCall<T>(T t1)
+    {
+        //throw new System.NotImplementedException();
+    }
+    /// <summary>
+    /// 悬浮框显示协程，TODO UI层级问题如何处理？
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator IEShowMiniWin()
+    {
+        while (true)
+        {
+            if (mainCamera != null && mainCamera.gameObject.activeSelf && hasMiniInfoWindow)
+            {
+                CheckMiniWindowShow(mainCamera, ref isMainCameraShow);
+            }
+            else if (firstCamera != null && firstCamera.gameObject.activeSelf && hasMiniInfoWindow)
+            {
+                CheckMiniWindowShow(firstCamera, ref isFirstCameraShow);
+            }
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    private void CheckMiniWindowShow(Camera c, ref bool show)
+    {
+        float distance = Vector3.Distance(c.transform.position, transform.position);
+        if (distance <= ShowMaxDistance && distance > ShowMinDistance)
+        {
+            if (!show)
+            {
+                show = true;
+                window.SetActive(true);
+                window.transform.DOScaleY(1, 0.1f);
+                //TODO 显示部分数据
+                SqliteCtr.Instance.Reader = SqliteCtr.Instance.DbHelper.ReadSpecificData("Item", "id", base.id.ToString());
+                while (SqliteCtr.Instance.Reader.Read())
+                {
+                    string name = SqliteCtr.Instance.Reader.GetString(SqliteCtr.Instance.Reader.GetOrdinal("name"));
+                    string width = SqliteCtr.Instance.Reader.GetString(SqliteCtr.Instance.Reader.GetOrdinal("width"));
+                    string height = SqliteCtr.Instance.Reader.GetString(SqliteCtr.Instance.Reader.GetOrdinal("height"));
+                    window.GetComponent<MiniShowWindow>()?.SetData(name, width, height);
+                }
+            }
+        }
+        else
+        {
+            if (show)
+            {
+                show = false;
+                window.transform.DOScaleY(0, 0.1f).OnComplete(() => { window.SetActive(false); });
+            }
+        }
+
+    }
+}

@@ -1,0 +1,143 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using Loxodon.Framework.ViewModels;
+using Loxodon.Framework.Commands;
+using Loxodon.Framework.Interactivity;
+using UnityEngine;
+
+public class MainUIViewModel : ViewModelBase
+{
+    private SimpleCommand positionViewOpenCmd;
+    private SimpleCommand scenceViewOpenCmd;
+    private SimpleCommand groupCmd;
+    private SimpleCommand dollyTrackCmd;
+    private SimpleCommand jumpPointCmd;
+    private SimpleCommand settingCmd;
+    private SimpleCommand backCmd;
+    #region 交互请求
+    private InteractionRequest interLeftShowReq;
+    private InteractionRequest interViewShowReq;
+    private InteractionRequest interBackReq;
+    #endregion
+    public ICommand PositionViewShowCmd
+    {
+        get { return this.positionViewOpenCmd; }
+    }
+    public ICommand ScenceViewOpenCmd
+    {
+        get { return this.scenceViewOpenCmd; }
+    }
+    public ICommand GroupCmd
+    {
+        get { return this.groupCmd; }
+    }
+    public ICommand DollyTrackCmd
+    {
+        get { return this.dollyTrackCmd; }
+    }
+    public ICommand JumpPointCmd
+    {
+        get { return this.jumpPointCmd; }
+    }
+    public ICommand SettingCmd
+    {
+        get { return this.settingCmd; }
+    }
+    public ICommand BackCmd
+    {
+        get { return this.backCmd; }
+    }
+
+    public InteractionRequest InterLeftShow
+    {
+        get { return this.interLeftShowReq; }
+    }
+    public InteractionRequest InterViewShowReq
+    {
+        get { return this.interViewShowReq; }
+    }
+    public InteractionRequest InterBackReq
+    {
+        get { return this.interBackReq; }
+    }
+
+    private void LeftBtnClick()
+    {
+        interLeftShowReq.Raise();    //调用交互请求
+    }
+    private void DollyTrackBtnClick()
+    {
+        Debug.Log("相机漫游按钮");
+    }
+    /// <summary>
+    /// 定点按钮响应
+    /// </summary>
+    private void JumpPointBtnClick()
+    {
+        //主相机激活时
+        if (MainCameraController.Instance.gameObject.activeSelf)
+        {
+            LoxodonWindowCtr.Instance.OpenWindow<JumpPointWindow>(Global.prefab_JumpPointSetting)
+                .SetRecordPoint(new RecordPointInfoModel(string.Empty, MainCameraController.Instance.transform.position, MainCameraController.Instance.transform.rotation,UnityEngine.SceneManagement.SceneManager.GetActiveScene().name));
+        }
+        //第一人称相机激活时
+        else if (ScenceViewController.Instance.firstPersonCamer.activeSelf)
+        {
+            LoxodonWindowCtr.Instance.OpenWindow<JumpPointWindow>(Global.prefab_JumpPointSetting)
+                .SetRecordPoint(new RecordPointInfoModel(string.Empty, ScenceViewController.Instance.firstPersonCamer.transform.position, ScenceViewController.Instance.firstPersonCamer.transform.rotation,UnityEngine.SceneManagement.SceneManager.GetActiveScene().name));
+        }
+
+    }
+    private void SettingBtnClick()
+    {
+        LoxodonWindowCtr.Instance.OpenWindow<CameraSettingWindow>(Global.prefab_SettingWindow);
+    }
+    private void GroupBtnClick()
+    {
+        LoxodonWindowCtr.Instance.OpenWindow<GroupSettingWindow>(Global.prefab_GroupSettingWindow);
+    }
+
+    public MainUIViewModel()
+    {
+        Init();
+    }
+    private void Init()
+    {
+        #region 交互响应初始化
+        this.interLeftShowReq = new InteractionRequest(this);
+        this.interBackReq = new InteractionRequest(this);
+        this.interViewShowReq = new InteractionRequest(this);
+        #endregion
+
+        #region 命令初始化
+        this.positionViewOpenCmd = new SimpleCommand(() =>
+        {
+            LeftBtnClick();
+        });
+        this.groupCmd = new SimpleCommand(() =>
+        {
+            GroupBtnClick();
+        });
+        this.dollyTrackCmd = new SimpleCommand(() =>
+        {
+            DollyTrackBtnClick();
+        });
+        this.jumpPointCmd = new SimpleCommand(() =>
+          {
+              JumpPointBtnClick();
+          });
+        this.settingCmd = new SimpleCommand(() =>
+        {
+            SettingBtnClick();
+        });
+        this.scenceViewOpenCmd = new SimpleCommand(() =>
+          {
+              this.interViewShowReq.Raise();
+          });
+        this.backCmd = new SimpleCommand(() =>
+          {
+              this.interBackReq.Raise();
+          });
+        #endregion
+    }
+}

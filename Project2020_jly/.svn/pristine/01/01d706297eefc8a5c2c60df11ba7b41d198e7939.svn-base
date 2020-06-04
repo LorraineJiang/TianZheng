@@ -1,0 +1,76 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Loxodon.Framework.ViewModels;
+using Loxodon.Framework.Commands;
+using Loxodon.Framework.Interactivity;
+using System;
+using Loxodon.Framework.Observables;
+
+/// <summary>
+/// 作业分组界面的viewmodel
+/// </summary>
+public class GroupSettingViewModel : ViewModelBase
+{
+    private SimpleCommand addCmd;
+    private SimpleCommand closeCmd;
+    private InteractionRequest interClose;
+    private InteractionRequest<Notification> interSelectNull;
+
+    public ICommand AddCmd
+    {
+        get { return this.addCmd; }
+    }
+    public ICommand CloseCmd
+    {
+        get { return this.closeCmd; }
+    }
+    public InteractionRequest InterClose
+    {
+        get { return this.interClose; }
+    }
+    public InteractionRequest<Notification> InterSelectNull
+    {
+        get { return this.interSelectNull; }
+    }
+
+    public GroupSettingViewModel()
+    {
+        this.interClose = new InteractionRequest(this);
+        this.interSelectNull = new InteractionRequest<Notification>(this);
+        this.addCmd = new SimpleCommand(() =>
+        {
+            AddBtnClick();
+        });
+        this.closeCmd = new SimpleCommand(() => { this.interClose.Raise(); });
+    }
+
+    public void AddBtnClick()
+    {
+        if (ScenceViewController.Instance.SelectedObject.Count <= 0)
+        {
+            this.interSelectNull.Raise(new Notification(R.view_GroupSetting_selectedNull));
+        }
+        else
+        {
+            RecordGroupInfo groupInfo = new RecordGroupInfo() { };
+            for (int i = 0; i < ScenceViewController.Instance.SelectedObject.Count; i++)
+            {
+                if (ScenceViewController.Instance.SelectedObject[i].GetComponent<ItemBase>() != null)
+                {
+                    int objId = ScenceViewController.Instance.SelectedObject[i].GetComponent<ItemBase>().id;
+                    if (!groupInfo.GroupObjects.Contains(objId))
+                    {
+                        groupInfo.GroupObjects.Add(objId);
+                    }
+                }
+                else
+                {
+                    Debug.LogErrorFormat("{0} dont have itemBase scripts", ScenceViewController.Instance.SelectedObject[i].name);
+                }
+            }
+            LoxodonWindowCtr.Instance.OpenWindow<GroupPointSettingWindow>(Global.path_GroupPointSettingWindow)
+            .SetModel(groupInfo);
+        }
+    }
+}
