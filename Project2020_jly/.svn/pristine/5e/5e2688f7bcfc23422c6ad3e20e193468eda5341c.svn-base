@@ -1,0 +1,117 @@
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
+using UnityStandardAssets.Characters.FirstPerson;
+
+/// <summary>
+/// 视角切换的ui列表
+/// </summary>
+public class DifferentViewUI : MonoBehaviour
+{
+    private IDisposable freeViewSubscription;
+    private IDisposable firstViewSubscription;
+    public List<Button> buttons;
+    //TODO 其他视角相机物体
+    void Start()
+    {
+        //注册对应的消息
+        freeViewSubscription = MessageCenter.Instance.Subscribe<bool>(MessegeChannel.ChangeToFreeCamera.ToString(), (b) => { MainCameraView(); });
+        firstViewSubscription = MessageCenter.Instance.Subscribe<bool>(MessegeChannel.ChangeToFirstCamera.ToString(), (b) => { FirstCameraView(); });
+       
+        buttons[0].onClick.AddListener(
+            () =>
+            {
+                MessageCenter.Instance.Publish<bool>(MessegeChannel.ScenceViewChangeBtn.ToString(), true);
+                MessageCenter.Instance.Publish<bool>(MessegeChannel.ChangeToFreeCamera.ToString(), true);
+            }
+            );
+
+        buttons[1].onClick.AddListener(
+            () =>
+            {
+                MessageCenter.Instance.Publish<bool>(MessegeChannel.ScenceViewChangeBtn.ToString(), false);
+                MessageCenter.Instance.Publish<bool>(MessegeChannel.ChangeToFirstCamera.ToString(), true);
+            }
+            );
+    }
+
+    private void OnDestroy()
+    {
+        if (freeViewSubscription != null)
+        {
+            freeViewSubscription.Dispose();
+            freeViewSubscription = null;
+        }
+        if (firstViewSubscription != null)
+        {
+            firstViewSubscription.Dispose();
+            firstViewSubscription = null;
+        }
+    }
+
+    /// <summary>
+    /// 切换自由视角
+    /// </summary>
+    private void MainCameraView()
+    {
+        MainCameraController.Instance.gameObject?.SetActive(true);
+        if (ScenceViewController.Instance.firstPersonCamer.activeSelf)
+        {
+            //当第一人称相机激活时，设置自由相机位置和角度，然后隐藏第一人称相机
+            MainCameraController.Instance.gameObject.transform.position = new Vector3(
+                ScenceViewController.Instance.firstPersonCamer.transform.position.x,
+                (ScenceViewController.Instance.firstPersonCamer.transform.position.y < MainCameraController.Instance.minPosition.y) ?
+                MainCameraController.Instance.minPosition.y : ScenceViewController.Instance.firstPersonCamer.transform.position.y + 1,
+                ScenceViewController.Instance.firstPersonCamer.transform.position.z
+                );
+            MainCameraController.Instance.gameObject.transform.rotation = ScenceViewController.Instance.firstPersonCamer.transform.rotation;
+            ScenceViewController.Instance.firstPersonCamer.SetActive(false);
+        }
+        ScenceViewController.Instance?.miniMap.SetTarget(MainCameraController.Instance.gameObject);
+        //设置四个方向跟随的旋转相机
+        ScenceViewController.Instance.miniMap.GetComponent<bl_MMCompass>().followCamera = MainCameraController.Instance.gameObject.GetComponent<Camera>();
+    }
+    /// <summary>
+    /// 切换第一人称视角
+    /// </summary>
+    private void FirstCameraView()
+    {
+        ScenceViewController.Instance?.firstPersonCamer?.SetActive(true);
+        if (MainCameraController.Instance.gameObject.activeSelf)
+        {
+            //当自由相机激活时，设置第一人称相机位置和角度，隐藏自由相机
+            
+            ScenceViewController.Instance.firstPersonCamer.transform.position = CheckHitPos(MainCameraController.Instance.gameObject.transform.position,(Vector3.up*2));
+            MainCameraController.Instance.gameObject.SetActive(false);
+        }
+        ScenceViewController.Instance?.miniMap.SetTarget(ScenceViewController.Instance?.firstPersonCamer);
+        //设置四个方向跟随的旋转相机
+        ScenceViewController.Instance.miniMap.GetComponent<bl_MMCompass>().followCamera = ScenceViewController.Instance?.firstPersonCamer.GetComponentInChildren<Camera>();
+    }
+
+    /// <summary>
+    /// 检测可碰撞点的位置，用来切换第一人称时使用
+    /// </summary>
+    /// <param name="originPos">当前位置点</param>
+    /// <param name="offset">位置点的偏移量</param>
+    /// <returns></returns>
+    private Vector3 CheckHitPos(Vector3 originPos,Vector3 offset)
+    {
+        Ray tempUpRay = new Ray(originPos, Vector3.up);
+        Ray tempDownRay = new Ray(originPos, -Vector3.up);
+        RaycastHit hit;
+        if (Physics.Raycast(tempDownRay, out hit))
+        {
+
+            return hit.point + offset;
+        }
+        else if (Physics.Raycast(tempUpRay, out hit))
+        {
+            return hit.point + offset;
+        }
+        else
+            return originPos;
+    }
+}

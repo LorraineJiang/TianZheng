@@ -1,0 +1,145 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using Loxodon.Framework.ViewModels;
+using Loxodon.Framework.Commands;
+using Loxodon.Framework.Observables;
+using Mono.Data.Sqlite;
+using Loxodon.Framework.Interactivity;
+using Loxodon.Framework.Asynchronous;
+using System;
+
+public class LoginViewModel : ViewModelBase
+{
+    private string userName;
+    private string passWord;
+    private ObservableDictionary<string, string> errorInfo = new ObservableDictionary<string, string>();
+    private SimpleCommand loginCmd;
+    
+    private InteractionRequest<Notification> toastRequest;
+    private InteractionRequest interClose;
+
+    private string remoteName;
+    private string remotePassWord;
+
+    public InteractionRequest InterClose
+    {
+        get { return this.interClose; }
+    }
+
+    public InteractionRequest<Notification> ToastReques
+    {
+        get { return this.toastRequest; }
+    }
+    public ICommand LoginCmd
+    {
+        get { return this.loginCmd; }
+    }
+    public string UserName
+    {
+        get { return this.userName; }
+        set { this.Set<string>(ref userName, value, "UserName"); }
+    }
+    public string PassWord
+    {
+        get { return this.passWord; }
+        set { this.Set<string>(ref passWord, value, "PassWord"); }
+    }
+    public ObservableDictionary<string, string> ErrorInfo
+    {
+        get { return this.errorInfo; }
+        set { this.Set<ObservableDictionary<string, string>>(ref errorInfo, value, "ErrorInfo"); }
+    }
+
+    public LoginViewModel()
+    {
+        this.loginCmd = new SimpleCommand(() =>
+          {
+              Login();
+          }
+        );
+        this.toastRequest = new InteractionRequest<Notification>(this);
+        this.interClose = new InteractionRequest(this);
+    }
+
+    public void Login()
+    {
+        //读取Uesr表来检验用户
+        try
+        {
+            SqliteCtr.Instance.Reader = SqliteCtr.Instance.DbHelper.ReadFullTable("User");
+            while (SqliteCtr.Instance.Reader.Read())
+            {
+                remoteName = SqliteCtr.Instance.Reader.GetString(SqliteCtr.Instance.Reader.GetOrdinal("Name"));
+                remotePassWord = SqliteCtr.Instance.Reader.GetString(SqliteCtr.Instance.Reader.GetOrdinal("PassWord"));
+            }
+
+            if (string.IsNullOrEmpty(userName))
+            {
+                if (!this.ErrorInfo.ContainsKey("error"))
+                {
+                    this.ErrorInfo.Add("error", "the name is empty");
+                }
+                else
+                {
+                    this.ErrorInfo["error"] = "the name is empty";
+                }
+                toastRequest.Raise(new Notification(this.ErrorInfo["error"]));
+                return;
+            }
+
+            if (string.IsNullOrEmpty(passWord))
+            {
+                if (!this.ErrorInfo.ContainsKey("error"))
+                {
+                    this.ErrorInfo.Add("error", "the passwor is empty");
+                }
+                else
+                {
+                    this.ErrorInfo["error"] = "the passwor is empty";
+                }
+                toastRequest.Raise(new Notification(this.ErrorInfo["error"]));
+                return;
+            }
+
+            if (remoteName != userName)
+            {
+                if (!this.ErrorInfo.ContainsKey("error"))
+                {
+                    this.ErrorInfo.Add("error", "the userName is not exist");
+                }
+                else
+                {
+                    this.ErrorInfo["error"] = "the userName is not exist";
+                }
+                toastRequest.Raise(new Notification(this.ErrorInfo["error"]));
+                return;
+            }
+
+            if (remotePassWord != passWord)
+            {
+                if (!this.ErrorInfo.ContainsKey("error"))
+                {
+                    this.ErrorInfo.Add("error", "the password is error");
+                }
+                else
+                {
+                    this.ErrorInfo["error"] = "the password is error";
+                }
+                toastRequest.Raise(new Notification(this.ErrorInfo["error"]));
+                return;
+            }
+            this.ErrorInfo.Clear();
+
+            //TODO 网络连接不上时如何处理？
+            LoxodonWindowCtr.Instance.OpenWindow<LoadingWindow>("Prefab/LoadingWindow").LoadScence("dachangjing", true);
+            this.InterClose.Raise();
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+        
+    }
+}

@@ -1,0 +1,52 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using Loxodon.Framework.ViewModels;
+using Loxodon.Framework.Commands;
+using Loxodon.Framework.Interactivity;
+using UnityEngine;
+/// <summary>
+/// 相机视图模型
+/// </summary>
+public class SettingViewModel : ViewModelBase
+{
+    private MouseController cameraCtr;
+    private InteractionRequest interClose;
+    private SimpleCommand closeCmd;
+
+    public MouseController CameraCtr
+    {
+        get { return this.cameraCtr; }
+        set { this.Set<MouseController>(ref cameraCtr, value, "CameraCtr"); }
+    }
+    public int CameraRotationSpeed
+    {
+        get { return this.cameraCtr.mRotationSpeed; }
+        set { this.Set<int>(ref cameraCtr.mRotationSpeed, value, "CameraRotationSpeed"); }
+    }
+    public int CameraScaleSpeed
+    {
+        get { return this.cameraCtr.mScaleSpeed; }
+        set { this.Set<int>(ref cameraCtr.mScaleSpeed, value, "CameraScaleSpeed"); }
+    }
+    public int CameraMoveSpeed
+    {
+        get { return this.cameraCtr.mSpeed; }
+        set { this.Set<int>(ref cameraCtr.mSpeed, value, "CameraMoveSpeed"); }
+    }
+    public ICommand CloseCmd
+    {
+        get { return this.closeCmd; }
+    }
+    public InteractionRequest InterClose
+    {
+        get { return this.interClose; }
+    }
+    public SettingViewModel()
+    {
+        interClose = new InteractionRequest(this);
+        closeCmd=new SimpleCommand(()=> {
+            this.interClose.Raise();
+        });
+    }
+        
+}
