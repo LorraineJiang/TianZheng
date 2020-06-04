@@ -1,0 +1,25 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Global
+{
+    //窗口预制件路径
+    public static readonly string prefab_InformationWindow = "Prefab/InformationWindow";
+    public static readonly string prefab_JumpPointSetting = "Prefab/JumpPointSettingWindow";
+    public static readonly string prefab_LoadingWindow = "Prefab/LoadingWindow";
+    public static readonly string prefab_LoginWindow = "Prefab/LoginWindow";
+    public static readonly string prefab_MainWindow = "Prefab/MainWindow";
+    public static readonly string prefab_ExitWindow = "Prefab/ExitCanvas";
+    public static readonly string prefab_ModifyInfoWindow = "Prefab/ModifyInfoWindow";
+    public static readonly string prefab_SettingWindow = "Prefab/SettingWindow";
+    public static readonly string prefab_GroupSettingWindow = "Prefab/GroupSettingWindow";
+    public static readonly string prefab_GroupPointSettingWindow = "Prefab/GroupPointSettingWindow";
+    public static readonly string prefab_InputIntroductionWindow = "Prefab/InputIntroductionWindow";
+    public static readonly string prefab_UGUIMenu = "Prefab/UGUIMenu";
+
+    //场景路径
+    public static readonly string scence_MainScence = "dachangjing";
+    public static readonly string scence_TestMainScence = "testScenes";
+    public static readonly string scence_AreaSelect = "AreaSelect";
+}
