@@ -1,0 +1,44 @@
+using Loxodon.Framework.Localizations;
+using System;
+
+public static partial class R
+{
+    public readonly static V<string> application_sure = new V<string>("application.sure"); 
+
+    public readonly static V<string> application_cancel = new V<string>("application.cancel"); 
+
+    public readonly static V<string> application_tip = new V<string>("application.tip"); 
+
+    public readonly static V<string> application_error = new V<string>("application.error"); 
+
+    public readonly static V<string> application_quit = new V<string>("application.quit"); 
+
+    public readonly static V<string> application_view_quitTips = new V<string>("application.view.quitTips"); 
+
+    public readonly static V<string> view_positionList_deletePoint = new V<string>("view.positionList.deletePoint"); 
+
+    public readonly static V<string> view_settingPosition_inputNameNull = new V<string>("view.settingPosition.inputNameNull"); 
+
+    public readonly static V<string> view_positionListItem_replaceCurrentPoint = new V<string>("view.positionListItem.replaceCurrentPoint"); 
+
+    public readonly static V<string> view_LoginError_userNameNull = new V<string>("view.LoginError.userNameNull"); 
+
+    public readonly static V<string> view_LoginError_passWordNull = new V<string>("view.LoginError.passWordNull"); 
+
+    public readonly static V<string> view_LoginError_userNameNotExist = new V<string>("view.LoginError.userNameNotExist"); 
+
+    public readonly static V<string> view_LoginError_passWordWrong = new V<string>("view.LoginError.passWordWrong"); 
+
+    public readonly static V<string> view_GroupSetting_selectedNull = new V<string>("view.GroupSetting.selectedNull"); 
+
+    public readonly static V<string> view_GroupSetting_groupNameExist = new V<string>("view.GroupSetting.groupNameExist"); 
+
+    public readonly static V<string> view_GroupViewList_deleteCurrentGroup = new V<string>("view.GroupViewList.deleteCurrentGroup"); 
+
+    public readonly static V<string> view_InputIntroduction_Left = new V<string>("view.InputIntroduction.Left"); 
+
+    public readonly static V<string> view_InputIntroduction_Midle = new V<string>("view.InputIntroduction.Midle"); 
+
+    public readonly static V<string> view_InputIntroduction_Right = new V<string>("view.InputIntroduction.Right"); 
+
+}
