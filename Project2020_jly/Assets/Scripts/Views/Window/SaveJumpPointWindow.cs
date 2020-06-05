@@ -1,0 +1,100 @@
+﻿using Loxodon.Framework.Commands;
+using Loxodon.Framework.Binding;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using Loxodon.Framework.Binding.Builder;
+using Loxodon.Framework.Contexts;
+using Loxodon.Framework.Views;
+using DG.Tweening;
+using System;
+using Loxodon.Framework.Interactivity;
+
+/// <summary>
+/// 跳转点保存界面
+/// </summary>
+public class SaveJumpPointWindow : Window
+{
+    public InputField input;
+    public Button sureButton;
+    public Button cancelButton;
+    public Button closeButton;
+    private IDisposable closeSub;
+
+    private SaveJumpPointViewModel viewModel;
+    protected override void OnCreate(IBundle bundle)
+    {
+        InitItems();
+        viewModel = new SaveJumpPointViewModel();
+
+        BindingSet<SaveJumpPointWindow, SaveJumpPointViewModel> bindingSet = this.CreateBindingSet(viewModel);
+
+        bindingSet.Bind(this.input).For(v => v.text, v => v.onValueChanged).To(vm => vm.RecordInfo.Title).TwoWay();
+        //注册关闭窗口消息
+        closeSub = MessageCenter.Instance.Subscribe<bool>(MessageChannel.CloseSaveJumpPointWindow.ToString(), (b) => { viewModel.InterClose.Raise(); });
+        bindingSet.Bind(this.sureButton).For(v => v.onClick).To(vm => vm.SureCmd);
+        bindingSet.Bind(this.cancelButton).For(v => v.onClick).To(vm => vm.CancelCmd);
+        bindingSet.Bind(this.closeButton).For(v => v.onClick).To(vm => vm.CancelCmd);
+        bindingSet.Bind().For(v => v.Close).To(vm => vm.InterClose);
+        bindingSet.Bind().For(v => v.ShowTitleEmptyMessage).To(vm => vm.InterTitleEmpty);
+        bindingSet.Build();
+        //屏蔽主相机射线检测
+        MainCameraController.Instance.mIsActive = false;
+        MainCameraController.Instance.mIsActiveRaycster = false;
+    }
+    public override void DoDismiss()
+    {
+        base.DoDismiss();
+        if (closeSub != null)
+        {
+            closeSub.Dispose();
+            closeSub = null;
+        }
+    }
+    /// <summary>
+    /// 设置记录点的信息
+    /// </summary>
+    /// <param name="info">记录点信息类</param>
+    public void SetRecordPoint(RecordPointInfoModel info)
+    {
+        viewModel.RecordInfo = info;
+    }
+
+    public void Close(object sender, InteractionEventArgs args)
+    {
+        this.Dismiss();
+        MainCameraController.Instance.mIsActiveRaycster = true;
+        MainCameraController.Instance.mIsActive = true;
+    }
+
+    private void ShowTitleEmptyMessage(object sender, InteractionEventArgs args)
+    {
+        DialogNotification notification = args.Context as DialogNotification;
+        var callback = args.Callback;
+
+        if (notification == null)
+            return;
+        //显示消息框
+        AlertDialog.ShowMessage(notification.Message, notification.Title, notification.ConfirmButtonText, null, notification.CancelButtonText, notification.CanceledOnTouchOutside, (result) =>
+        {
+            notification.DialogResult = result;
+            //点击对应选项后的回调函数，该回调在vm中
+            if (callback != null)
+                callback();
+        });
+    }
+    private void InitItems()
+    {
+        if (input == null)
+            input = GetComponentInChildren<InputField>();
+        Button[] buttons = GetComponentsInChildren<Button>();
+        if (buttons.Length > 0)
+        {
+            if (sureButton == null)
+                sureButton = buttons[0];
+            if (cancelButton == null)
+                cancelButton = buttons[1];
+        }
+    }
+}

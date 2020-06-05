@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5a5e692b2987d2041904cc17dd7ac403
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - objectFocus: {instanceID: 0}
+  - dofBlurShader: {instanceID: 0}
+  - dofShader: {instanceID: 0}
+  - bokehShader: {fileID: 4800000, guid: 57cdacf9b217546aaa18edf39a6151c0, type: 3}
+  - bokehTexture: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

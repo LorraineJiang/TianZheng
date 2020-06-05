@@ -1,0 +1,609 @@
+fileFormatVersion: 2
+guid: 45d56a1cae3cd8547b33da5ab7d7b618
+timeCreated: 1582969212
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Capsule001
+    100002: Circle003
+    100004: Circle005
+    100006: Circle006
+    100008: Circle007
+    100010: Circle008
+    100012: Circle009
+    100014: Circle469
+    100016: Circle477
+    100018: Cylinder001
+    100020: Line045
+    100022: Line046
+    100024: Line048
+    100026: Rectangle343
+    100028: Rectangle344
+    100030: Rectangle345
+    100032: Rectangle347
+    100034: Rectangle348
+    100036: Rectangle349
+    100038: Rectangle354
+    100040: Rectangle355
+    100042: Rectangle356
+    100044: Rectangle358
+    100046: Rectangle863
+    100048: Rectangle864
+    100050: Rectangle865
+    100052: //RootNode
+    100054: "\u56FE\u5F62003"
+    100056: "\u56FE\u5F62004"
+    100058: "\u56FE\u5F62005"
+    100060: "\u56FE\u5F62006"
+    100062: "\u56FE\u5F62007"
+    100064: "\u56FE\u5F62010"
+    100066: "\u56FE\u5F62011"
+    100068: "\u56FE\u5F62012"
+    100070: "\u56FE\u5F62394"
+    100072: "\u56FE\u5F62395"
+    100074: "\u5BF9\u8C61012"
+    100076: "\u5BF9\u8C61013"
+    100078: "\u5BF9\u8C61023"
+    100080: "\u5BF9\u8C61024"
+    100082: "\u5BF9\u8C61025"
+    100084: "\u5BF9\u8C61026"
+    100086: "\u5BF9\u8C61042"
+    100088: "\u5BF9\u8C61043"
+    100090: "\u5BF9\u8C61044"
+    100092: "\u5BF9\u8C61045"
+    100094: "\u5BF9\u8C61046"
+    100096: "\u5BF9\u8C61047"
+    100098: "\u5BF9\u8C61048"
+    100100: "\u5BF9\u8C61052"
+    100102: "\u5BF9\u8C61053"
+    100104: "\u5BF9\u8C61054"
+    100106: "\u5BF9\u8C61055"
+    100108: "\u5BF9\u8C61056"
+    100110: "\u5BF9\u8C61057"
+    100112: "\u5BF9\u8C61058"
+    100114: "\u5BF9\u8C61060"
+    100116: "\u5BF9\u8C61063"
+    100118: "\u5BF9\u8C611293"
+    100120: "\u5BF9\u8C611294"
+    100122: "\u5BF9\u8C611295"
+    100124: "\u5BF9\u8C611296"
+    100126: "\u5BF9\u8C611297"
+    100128: "\u5BF9\u8C611298"
+    100130: "\u5BF9\u8C611299"
+    100132: "\u5BF9\u8C611300"
+    100134: "\u5BF9\u8C611301"
+    100136: "\u5BF9\u8C611302"
+    100138: "\u7EC4218"
+    100140: Circle030
+    100142: guan00
+    100144: guan01
+    100146: guan02
+    100148: guan03
+    100150: guan04
+    100152: guan05
+    100154: guan06
+    100156: guan07
+    100158: guan08
+    400000: Capsule001
+    400002: Circle003
+    400004: Circle005
+    400006: Circle006
+    400008: Circle007
+    400010: Circle008
+    400012: Circle009
+    400014: Circle469
+    400016: Circle477
+    400018: Cylinder001
+    400020: Line045
+    400022: Line046
+    400024: Line048
+    400026: Rectangle343
+    400028: Rectangle344
+    400030: Rectangle345
+    400032: Rectangle347
+    400034: Rectangle348
+    400036: Rectangle349
+    400038: Rectangle354
+    400040: Rectangle355
+    400042: Rectangle356
+    400044: Rectangle358
+    400046: Rectangle863
+    400048: Rectangle864
+    400050: Rectangle865
+    400052: //RootNode
+    400054: "\u56FE\u5F62003"
+    400056: "\u56FE\u5F62004"
+    400058: "\u56FE\u5F62005"
+    400060: "\u56FE\u5F62006"
+    400062: "\u56FE\u5F62007"
+    400064: "\u56FE\u5F62010"
+    400066: "\u56FE\u5F62011"
+    400068: "\u56FE\u5F62012"
+    400070: "\u56FE\u5F62394"
+    400072: "\u56FE\u5F62395"
+    400074: "\u5BF9\u8C61012"
+    400076: "\u5BF9\u8C61013"
+    400078: "\u5BF9\u8C61023"
+    400080: "\u5BF9\u8C61024"
+    400082: "\u5BF9\u8C61025"
+    400084: "\u5BF9\u8C61026"
+    400086: "\u5BF9\u8C61042"
+    400088: "\u5BF9\u8C61043"
+    400090: "\u5BF9\u8C61044"
+    400092: "\u5BF9\u8C61045"
+    400094: "\u5BF9\u8C61046"
+    400096: "\u5BF9\u8C61047"
+    400098: "\u5BF9\u8C61048"
+    400100: "\u5BF9\u8C61052"
+    400102: "\u5BF9\u8C61053"
+    400104: "\u5BF9\u8C61054"
+    400106: "\u5BF9\u8C61055"
+    400108: "\u5BF9\u8C61056"
+    400110: "\u5BF9\u8C61057"
+    400112: "\u5BF9\u8C61058"
+    400114: "\u5BF9\u8C61060"
+    400116: "\u5BF9\u8C61063"
+    400118: "\u5BF9\u8C611293"
+    400120: "\u5BF9\u8C611294"
+    400122: "\u5BF9\u8C611295"
+    400124: "\u5BF9\u8C611296"
+    400126: "\u5BF9\u8C611297"
+    400128: "\u5BF9\u8C611298"
+    400130: "\u5BF9\u8C611299"
+    400132: "\u5BF9\u8C611300"
+    400134: "\u5BF9\u8C611301"
+    400136: "\u5BF9\u8C611302"
+    400138: "\u7EC4218"
+    400140: Circle030
+    400142: guan00
+    400144: guan01
+    400146: guan02
+    400148: guan03
+    400150: guan04
+    400152: guan05
+    400154: guan06
+    400156: guan07
+    400158: guan08
+    2300000: Capsule001
+    2300002: Circle003
+    2300004: Circle005
+    2300006: Circle006
+    2300008: Circle007
+    2300010: Circle008
+    2300012: Circle009
+    2300014: Circle469
+    2300016: Circle477
+    2300018: Cylinder001
+    2300020: Line045
+    2300022: Line046
+    2300024: Line048
+    2300026: Rectangle343
+    2300028: Rectangle344
+    2300030: Rectangle345
+    2300032: Rectangle347
+    2300034: Rectangle348
+    2300036: Rectangle349
+    2300038: Rectangle354
+    2300040: Rectangle355
+    2300042: Rectangle356
+    2300044: Rectangle358
+    2300046: Rectangle863
+    2300048: Rectangle864
+    2300050: Rectangle865
+    2300052: "\u56FE\u5F62003"
+    2300054: "\u56FE\u5F62004"
+    2300056: "\u56FE\u5F62005"
+    2300058: "\u56FE\u5F62006"
+    2300060: "\u56FE\u5F62007"
+    2300062: "\u56FE\u5F62010"
+    2300064: "\u56FE\u5F62011"
+    2300066: "\u56FE\u5F62012"
+    2300068: "\u56FE\u5F62394"
+    2300070: "\u56FE\u5F62395"
+    2300072: "\u5BF9\u8C61012"
+    2300074: "\u5BF9\u8C61013"
+    2300076: "\u5BF9\u8C61023"
+    2300078: "\u5BF9\u8C61024"
+    2300080: "\u5BF9\u8C61025"
+    2300082: "\u5BF9\u8C61026"
+    2300084: "\u5BF9\u8C61042"
+    2300086: "\u5BF9\u8C61043"
+    2300088: "\u5BF9\u8C61044"
+    2300090: "\u5BF9\u8C61045"
+    2300092: "\u5BF9\u8C61046"
+    2300094: "\u5BF9\u8C61047"
+    2300096: "\u5BF9\u8C61048"
+    2300098: "\u5BF9\u8C61052"
+    2300100: "\u5BF9\u8C61053"
+    2300102: "\u5BF9\u8C61054"
+    2300104: "\u5BF9\u8C61055"
+    2300106: "\u5BF9\u8C61056"
+    2300108: "\u5BF9\u8C61057"
+    2300110: "\u5BF9\u8C61058"
+    2300112: "\u5BF9\u8C61060"
+    2300114: "\u5BF9\u8C61063"
+    2300116: "\u5BF9\u8C611293"
+    2300118: "\u5BF9\u8C611294"
+    2300120: "\u5BF9\u8C611295"
+    2300122: "\u5BF9\u8C611296"
+    2300124: "\u5BF9\u8C611297"
+    2300126: "\u5BF9\u8C611298"
+    2300128: "\u5BF9\u8C611299"
+    2300130: "\u5BF9\u8C611300"
+    2300132: "\u5BF9\u8C611301"
+    2300134: "\u5BF9\u8C611302"
+    2300136: Circle030
+    2300138: guan00
+    2300140: guan01
+    2300142: guan02
+    2300144: guan03
+    2300146: guan04
+    2300148: guan05
+    2300150: guan06
+    2300152: guan07
+    2300154: guan08
+    3300000: Capsule001
+    3300002: Circle003
+    3300004: Circle005
+    3300006: Circle006
+    3300008: Circle007
+    3300010: Circle008
+    3300012: Circle009
+    3300014: Circle469
+    3300016: Circle477
+    3300018: Cylinder001
+    3300020: Line045
+    3300022: Line046
+    3300024: Line048
+    3300026: Rectangle343
+    3300028: Rectangle344
+    3300030: Rectangle345
+    3300032: Rectangle347
+    3300034: Rectangle348
+    3300036: Rectangle349
+    3300038: Rectangle354
+    3300040: Rectangle355
+    3300042: Rectangle356
+    3300044: Rectangle358
+    3300046: Rectangle863
+    3300048: Rectangle864
+    3300050: Rectangle865
+    3300052: "\u56FE\u5F62003"
+    3300054: "\u56FE\u5F62004"
+    3300056: "\u56FE\u5F62005"
+    3300058: "\u56FE\u5F62006"
+    3300060: "\u56FE\u5F62007"
+    3300062: "\u56FE\u5F62010"
+    3300064: "\u56FE\u5F62011"
+    3300066: "\u56FE\u5F62012"
+    3300068: "\u56FE\u5F62394"
+    3300070: "\u56FE\u5F62395"
+    3300072: "\u5BF9\u8C61012"
+    3300074: "\u5BF9\u8C61013"
+    3300076: "\u5BF9\u8C61023"
+    3300078: "\u5BF9\u8C61024"
+    3300080: "\u5BF9\u8C61025"
+    3300082: "\u5BF9\u8C61026"
+    3300084: "\u5BF9\u8C61042"
+    3300086: "\u5BF9\u8C61043"
+    3300088: "\u5BF9\u8C61044"
+    3300090: "\u5BF9\u8C61045"
+    3300092: "\u5BF9\u8C61046"
+    3300094: "\u5BF9\u8C61047"
+    3300096: "\u5BF9\u8C61048"
+    3300098: "\u5BF9\u8C61052"
+    3300100: "\u5BF9\u8C61053"
+    3300102: "\u5BF9\u8C61054"
+    3300104: "\u5BF9\u8C61055"
+    3300106: "\u5BF9\u8C61056"
+    3300108: "\u5BF9\u8C61057"
+    3300110: "\u5BF9\u8C61058"
+    3300112: "\u5BF9\u8C61060"
+    3300114: "\u5BF9\u8C61063"
+    3300116: "\u5BF9\u8C611293"
+    3300118: "\u5BF9\u8C611294"
+    3300120: "\u5BF9\u8C611295"
+    3300122: "\u5BF9\u8C611296"
+    3300124: "\u5BF9\u8C611297"
+    3300126: "\u5BF9\u8C611298"
+    3300128: "\u5BF9\u8C611299"
+    3300130: "\u5BF9\u8C611300"
+    3300132: "\u5BF9\u8C611301"
+    3300134: "\u5BF9\u8C611302"
+    3300136: Circle030
+    3300138: guan00
+    3300140: guan01
+    3300142: guan02
+    3300144: guan03
+    3300146: guan04
+    3300148: guan05
+    3300150: guan06
+    3300152: guan07
+    3300154: guan08
+    4300000: "\u5BF9\u8C61012"
+    4300002: Rectangle343
+    4300004: Rectangle344
+    4300006: Rectangle345
+    4300008: Circle469
+    4300010: "\u5BF9\u8C61026"
+    4300012: Circle005
+    4300014: Capsule001
+    4300016: Circle006
+    4300018: Rectangle354
+    4300020: Cylinder001
+    4300022: "\u56FE\u5F62394"
+    4300024: "\u56FE\u5F62395"
+    4300026: "\u5BF9\u8C61042"
+    4300028: "\u5BF9\u8C61043"
+    4300030: "\u5BF9\u8C61044"
+    4300032: "\u5BF9\u8C61045"
+    4300034: "\u5BF9\u8C61046"
+    4300036: "\u5BF9\u8C61047"
+    4300038: Rectangle355
+    4300040: Circle007
+    4300042: "\u5BF9\u8C61048"
+    4300044: "\u56FE\u5F62003"
+    4300046: "\u56FE\u5F62004"
+    4300048: "\u56FE\u5F62005"
+    4300050: "\u5BF9\u8C61052"
+    4300052: "\u5BF9\u8C61053"
+    4300054: "\u5BF9\u8C61054"
+    4300056: "\u5BF9\u8C61055"
+    4300058: "\u5BF9\u8C61056"
+    4300060: "\u5BF9\u8C61057"
+    4300062: Rectangle356
+    4300064: Circle008
+    4300066: "\u56FE\u5F62006"
+    4300068: "\u5BF9\u8C61058"
+    4300070: Circle009
+    4300072: "\u56FE\u5F62007"
+    4300074: "\u56FE\u5F62012"
+    4300076: "\u5BF9\u8C61063"
+    4300078: Line048
+    4300080: Rectangle358
+    4300082: Line046
+    4300084: "\u56FE\u5F62011"
+    4300086: Line045
+    4300088: "\u56FE\u5F62010"
+    4300090: "\u5BF9\u8C611293"
+    4300092: Circle477
+    4300094: Rectangle863
+    4300096: Rectangle864
+    4300098: Rectangle865
+    4300100: "\u5BF9\u8C611294"
+    4300102: "\u5BF9\u8C611295"
+    4300104: "\u5BF9\u8C611296"
+    4300106: "\u5BF9\u8C611297"
+    4300108: "\u5BF9\u8C611298"
+    4300110: "\u5BF9\u8C611299"
+    4300112: "\u5BF9\u8C611300"
+    4300114: Rectangle347
+    4300116: Rectangle348
+    4300118: Rectangle349
+    4300120: "\u5BF9\u8C61013"
+    4300122: "\u5BF9\u8C61023"
+    4300124: Circle003
+    4300126: "\u5BF9\u8C61024"
+    4300128: "\u5BF9\u8C61025"
+    4300130: "\u5BF9\u8C61060"
+    4300132: "\u5BF9\u8C611301"
+    4300134: "\u5BF9\u8C611302"
+    4300136: Circle030
+    4300138: guan03
+    4300140: guan05
+    4300142: guan04
+    4300144: guan06
+    4300146: guan00
+    4300148: guan07
+    4300150: guan08
+    4300152: guan01
+    4300154: guan02
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14895'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14896'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14901'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14902'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14903'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14904'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14905'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14906'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14907'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14908'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14910'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14911'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14912'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14924'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14937'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14938'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14985'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14997'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #15112'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #15124'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #15136'
+    second: {fileID: 2100000, guid: e7995d5e329982e458a5ed0911f32793, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #9591'
+    second: {fileID: 2100000, guid: a70a85971706145428ef00eebc1a01f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #9595'
+    second: {fileID: 2100000, guid: da2bd516c37e5b6408a2c916114fe290, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #9598'
+    second: {fileID: 2100000, guid: 5fa09c538bc1da643a8a1c5d87e6db12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: qianlanse
+    second: {fileID: 2100000, guid: 02c72c3b1533623488e8df55e04beeb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: yinse
+    second: {fileID: 2100000, guid: 13e9c253e642d54458d9c166598784f2, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

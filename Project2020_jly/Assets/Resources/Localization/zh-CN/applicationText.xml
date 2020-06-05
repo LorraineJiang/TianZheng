@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="application.sure">确定</string>
+	<string name="application.cancel">取消</string>
+	<string name="application.tip">提示</string>
+  <string name="application.error">错误</string>
+  <string name="application.quit">退出</string>
+  <string name="application.complete">完成</string>
+  <string name="application.stopNavigation">是否停止当前巡航</string>
+  <string name="application.view.quitTips">是否退出当前软件</string>
+  <string name="application.button.settingPosition">设置兴趣点</string>
+  <string name="application.button.settingGroup">分组</string>
+  <string name="application.Menu.settingNavigation">设置巡航点</string>
+  <string name="application.Menu.addNavigation">新增巡航点</string>
+	<string name="view.positionList.deletePoint">是否删除当前兴趣点</string>
+	<string name="view.settingPosition.inputNameNull">当前输入的文本为空</string>
+	<string name="view.positionListItem.replaceCurrentPoint">当前输入的兴趣点已经存在是否替换</string>
+  <string name="view.LoginError.userNameNull">当前输入的用户名为空</string>
+  <string name="view.LoginError.passWordNull">当前输入的密码为空</string>
+  <string name="view.LoginError.userNameOrpassWordError">当前输入的账号或者密码错误</string>
+  <string name="view.GroupSetting.selectedNull">当前没有选中任何物体</string>
+  <string name="view.GroupSetting.selectedCantGroup">当前包含无法分组的物体</string>
+  <string name="view.GroupSetting.groupNameExist">当前输入的组名已经存在是否替换该组</string>
+  <string name="view.GroupViewList.deleteCurrentGroup">是否删除当前的工作分组</string>
+  <string name="view.InputIntroduction.Content">
+    鼠标功能：
+    1.左键点击物体进行交互
+    2.按住ctrl左键点击可以多选
+    3.左键拖拽可以前后左右移动相机
+    4.右键点击可以打开菜单项
+    5.滚动中键可以控制相机靠近和远离
+    6.按住中键可以调整相机的视角
+
+    键盘功能：
+    1.Tap可以缩放小地图,+/- 键可以放大缩小
+    2.WASD可以移动
+    3.Shift可以奔跑
+    4.Space可以跳跃
+    5.Esc可以退出软件或者退出巡航
+  </string>
+  <string name="view.SaveNavigation.PathExist">当前输入的巡航路径已经存在是否替换</string>
+  <string name="view.SaveNavigation.CancelEditor">是否取消当前路径编辑</string>
+  <string name="view.NavigationList.deletePoint">是否删除当前巡航点</string>
+  <string name="view.ModifyInfo.inputTitleNull">当前输入的标题为空</string>
+</resources>
